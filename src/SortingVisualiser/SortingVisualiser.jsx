@@ -1,5 +1,6 @@
 import React from "react";
-import { mergeSortAnimations, getMergeSortAnimations } from "./mergeSort";
+import { mergeSortAnimations } from "../Algorithms/mergeSort";
+import { bubbleSortAnimations } from "../Algorithms/bubbleSort";
 import "./SortingVisualiser.css";
 
 export default class SortingVisualiser extends React.Component {
@@ -8,6 +9,7 @@ export default class SortingVisualiser extends React.Component {
 
         this.state = {
             array: [],
+            running: false
         };
     }
 
@@ -20,6 +22,7 @@ export default class SortingVisualiser extends React.Component {
     }
 
     resetArray() {
+        if (this.state.running) return;
         let arraySize = Math.floor(Math.random() * (300 - 10 + 1) + 10);
 
         let array = [];
@@ -40,7 +43,7 @@ export default class SortingVisualiser extends React.Component {
     }
 
     mergeSort() {
-        const animations = mergeSortAnimations(this.state.array);
+        const animations = bubbleSortAnimations(this.state.array);
 
         for (let i = 0; i < animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
@@ -78,7 +81,7 @@ export default class SortingVisualiser extends React.Component {
             this.visualiseDijkstra(); 
         } else {
             alert("Select an Algorithm");
-          }
+        }
     }
 
     render() {
