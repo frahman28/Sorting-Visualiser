@@ -1,0 +1,24 @@
+.array-block {
+    border-radius: 5em;
+    width: 1em;
+    display: inline-block;
+    margin: 0 0.1em;
+}
+
+.navbar.navbar-default {
+    padding: 1em;
+    background-color: #388087;
+    align-items: center;
+}
+  
+.btn.btn-primary {
+    outline: 1px solid #c2edce;
+    border-color: #c2edce;
+    color: #c2edce;
+    background-color: #388087;
+}
+  
+.btn.btn-primary:hover {
+    color: #388087;
+    background-color: #c2edce;
+}
