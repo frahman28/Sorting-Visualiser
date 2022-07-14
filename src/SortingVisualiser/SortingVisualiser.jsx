@@ -43,7 +43,7 @@ export default class SortingVisualiser extends React.Component {
     }
 
     mergeSort() {
-        const animations = bubbleSortAnimations(this.state.array);
+        const animations = mergeSortAnimations(this.state.array);
 
         for (let i = 0; i < animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
@@ -70,11 +70,51 @@ export default class SortingVisualiser extends React.Component {
         }
     }
 
+    bubbleSort() {
+        const animations = bubbleSortAnimations(this.state.array);
+
+        for (let i = 0; i < animations.length; i++) {
+            const elements = document.getElementsByClassName("array-block");
+            //let isColorChange = i % 3 !== 2;
+            let isColourChange = false;
+
+            if (i % 4 === 0 || i % 4 === 1) {
+                isColourChange = true;
+            }
+
+            if (isColourChange) {
+                let [firstBar, secondBar] = animations[i];
+                let firstBarStyle = elements[firstBar].style;
+                let secondBarStyle = elements[secondBar].style;
+
+                let colour = i % 3 === 0 ? 'red' : 'lime';
+
+                if (i % 4 === 0) {
+                    colour = 'red';
+                } else {
+                    colour = 'lime';
+                }
+
+                
+                setTimeout(() => {
+                    firstBarStyle.backgroundColor = colour;
+                    secondBarStyle.backgroundColor = colour;
+                }, i * 1);
+            } else {
+                setTimeout(() => {
+                    let [firstBar, newHeight] = animations[i];
+                    let firstBarStyle = elements[firstBar].style;
+                    firstBarStyle.height = `${newHeight}px`;
+                }, i * 1);
+            }
+        }
+    }
+
     visualise() {
         if (document.getElementById("merge").checked === true) {
             this.mergeSort();
         } else if (document.getElementById("bubble").checked === true) {
-            this.visualiseDfs();
+            this.bubbleSort();
         } else if (document.getElementById("quick").checked === true) {
             this.visualiseGreedy();
         } else if (document.getElementById("heap").checked === true) {
