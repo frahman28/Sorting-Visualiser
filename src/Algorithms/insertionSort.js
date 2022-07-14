@@ -1,9 +1,7 @@
 const insertionSortAnimations = function(array) {
     const animations = [];
     if (array.length <= 1) return array;
-    console.log(array);
     insertionSort(array, animations);
-    console.log(array);
     return animations;
 }
 
