@@ -4,6 +4,8 @@ import { bubbleSortAnimations } from "../Algorithms/bubbleSort";
 import { quickSortAnimations } from "../Algorithms/quickSort";
 import { heapSortAnimations } from "../Algorithms/heapSort";
 import { insertionSortAnimations } from "../Algorithms/insertionSort";
+import { selectionSortAnimations } from "../Algorithms/selectionSort";
+
 import "./SortingVisualiser.css";
 
 export default class SortingVisualiser extends React.Component {
@@ -233,6 +235,46 @@ export default class SortingVisualiser extends React.Component {
         }
     }
 
+    selectionSort() {
+        const animations = selectionSortAnimations(this.state.array);
+
+        for (let i = 0; i < animations.length; i++) {
+            const elements = document.getElementsByClassName("array-block");
+            //let isColorChange = i % 3 !== 2;
+            let isColourChange = false;
+
+            if (i % 4 === 0 || i % 4 === 1) {
+                isColourChange = true;
+            }
+
+            if (isColourChange) {
+                let [firstBar, secondBar] = animations[i];
+                let firstBarStyle = elements[firstBar].style;
+                let secondBarStyle = elements[secondBar].style;
+
+                let colour = i % 3 === 0 ? 'red' : 'lime';
+
+                if (i % 4 === 0) {
+                    colour = 'red';
+                } else {
+                    colour = 'lime';
+                }
+
+                
+                setTimeout(() => {
+                    firstBarStyle.backgroundColor = colour;
+                    secondBarStyle.backgroundColor = colour;
+                }, i * 5);
+            } else {
+                setTimeout(() => {
+                    let [firstBar, newHeight] = animations[i];
+                    let firstBarStyle = elements[firstBar].style;
+                    firstBarStyle.height = `${newHeight}px`;
+                }, i * 5);
+            }
+        }
+    }
+
     visualise() {
         if (document.getElementById("merge").checked === true) {
             this.mergeSort();
@@ -245,7 +287,7 @@ export default class SortingVisualiser extends React.Component {
         } else if (document.getElementById("insertion").checked === true) {
             this.insertionSort(); 
         } else if (document.getElementById("selection").checked === true) {
-            this.heapSort(); 
+            this.selectionSort(); 
         } else {
             alert("Select an Algorithm");
         }
