@@ -36,7 +36,7 @@ export default class SortingVisualiser extends React.Component {
             array.push(Math.floor(Math.random() * (500 - 10 + 1) + 10));
         }
         
-        this.setState({array});
+        this.setState({array, running: false});
     }
 
     setBarSize() {
@@ -99,7 +99,6 @@ export default class SortingVisualiser extends React.Component {
                 } else {
                     colour = 'lime';
                 }
-
                 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
@@ -139,7 +138,6 @@ export default class SortingVisualiser extends React.Component {
                 } else {
                     colour = 'lime';
                 }
-
                 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
@@ -179,7 +177,6 @@ export default class SortingVisualiser extends React.Component {
                 } else {
                     colour = 'lime';
                 }
-
                 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
@@ -220,7 +217,6 @@ export default class SortingVisualiser extends React.Component {
                     colour = 'lime';
                 }
 
-                
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
@@ -260,7 +256,6 @@ export default class SortingVisualiser extends React.Component {
                     colour = 'lime';
                 }
 
-                
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
@@ -319,10 +314,10 @@ export default class SortingVisualiser extends React.Component {
             <input type="radio" name="algorithm" id="selection" autocomplete="off"/> Selection Sort
             </label>
             </div>
-            <button className="btn btn-primary" onClick={() => this.visualise()}>
+            <button className="btn btn-primary" id="visualise" onClick={() => this.visualise()}>
             Visualise
             </button>
-            <button className="btn btn-primary" onClick={() => this.resetArray()}>
+            <button className="btn btn-primary" id="reset" onClick={() => this.resetArray()}>
             Randomise Array
             </button>
             </div>

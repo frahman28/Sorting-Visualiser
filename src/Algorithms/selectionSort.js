@@ -1,23 +1,19 @@
 const selectionSortAnimations = function(array) {
     const animations = [];
     if (array.length <= 1) return array;
-    console.log(array);
-    selectionSort(array, animations);
-    console.log(array);
+    selectionSort(array, array.length, animations);
     return animations;
 }
 
-function selectionSort(array, animations) {
+function selectionSort(array,  n, animations) {
     var i, j, min_idx;
-
-    for (i = 0; i < array.length-1; i++) {
+    for (i = 0; i < n-1; i++) {
         min_idx = i;
-        for (j = i + 1; j < array.length; j++) {
-            if (array[j] < array[min_idx]) {
-                min_idx = j;
-            }
-            swap(min_idx, i, array, animations);
-        }
+        for (j = i + 1; j < n; j++)
+        if (array[j] < array[min_idx])
+            min_idx = j;
+  
+        swap(min_idx, i, array, animations);
     }
 }
 
