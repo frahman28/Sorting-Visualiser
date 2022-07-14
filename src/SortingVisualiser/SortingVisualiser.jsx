@@ -1,6 +1,7 @@
 import React from "react";
 import { mergeSortAnimations } from "../Algorithms/mergeSort";
 import { bubbleSortAnimations } from "../Algorithms/bubbleSort";
+import { quickSortAnimations } from "../Algorithms/quickSort";
 import "./SortingVisualiser.css";
 
 export default class SortingVisualiser extends React.Component {
@@ -99,13 +100,53 @@ export default class SortingVisualiser extends React.Component {
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
-                }, i * 1);
+                }, (i/10) * 20);
             } else {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
-                }, i * 1);
+                }, (i/10) * 20);
+            }
+        }
+    }
+
+    quickSort() {
+        const animations = quickSortAnimations(this.state.array);
+
+        for (let i = 0; i < animations.length; i++) {
+            const elements = document.getElementsByClassName("array-block");
+            //let isColorChange = i % 3 !== 2;
+            let isColourChange = false;
+
+            if (i % 4 === 0 || i % 4 === 1) {
+                isColourChange = true;
+            }
+
+            if (isColourChange) {
+                let [firstBar, secondBar] = animations[i];
+                let firstBarStyle = elements[firstBar].style;
+                let secondBarStyle = elements[secondBar].style;
+
+                let colour = i % 3 === 0 ? 'red' : 'lime';
+
+                if (i % 4 === 0) {
+                    colour = 'red';
+                } else {
+                    colour = 'lime';
+                }
+
+                
+                setTimeout(() => {
+                    firstBarStyle.backgroundColor = colour;
+                    secondBarStyle.backgroundColor = colour;
+                }, i * 20);
+            } else {
+                setTimeout(() => {
+                    let [firstBar, newHeight] = animations[i];
+                    let firstBarStyle = elements[firstBar].style;
+                    firstBarStyle.height = `${newHeight}px`;
+                }, i * 20);
             }
         }
     }
@@ -116,7 +157,7 @@ export default class SortingVisualiser extends React.Component {
         } else if (document.getElementById("bubble").checked === true) {
             this.bubbleSort();
         } else if (document.getElementById("quick").checked === true) {
-            this.visualiseGreedy();
+            this.quickSort();
         } else if (document.getElementById("heap").checked === true) {
             this.visualiseDijkstra(); 
         } else {
