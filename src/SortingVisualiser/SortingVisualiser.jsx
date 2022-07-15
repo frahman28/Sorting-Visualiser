@@ -28,7 +28,7 @@ export default class SortingVisualiser extends React.Component {
 
     resetArray() {
         if (this.state.running) return;
-        let arraySize = Math.floor(Math.random() * (300 - 10 + 1) + 10);
+        let arraySize = Math.floor(Math.random() * (250 - 10 + 1) + 10);
 
         let array = [];
 
@@ -41,21 +41,27 @@ export default class SortingVisualiser extends React.Component {
 
     setBarSize() {
         var elements = document.getElementsByClassName("array-block");
-        let blockSize = (1 / (elements.length / 300)) / 10;
+        let blockSize = (1 / (elements.length / 250)) / 10;
         for (let i = 0; i < elements.length; i++) {
             elements[i].style.width = `${blockSize}em`;
         }
+
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].style.backgroundColor = 'lime';
+        }
+
     }
 
     mergeSort() {
-        const oldArray = this.state.array;
         const animations = mergeSortAnimations(this.state.array);
 
-        for (let i = 0; i < animations.length; i++) {
-            const elements = document.getElementsByClassName("array-block");
-            let isColorChange = i % 3 !== 2;
+        let speed = (1 / (animations.length)) * 25000;
 
-            if (isColorChange) {
+        for (let i = 0; i <= animations.length; i++) {
+            const elements = document.getElementsByClassName("array-block");
+            let isColourChange = i % 3 !== 2;
+
+            if (isColourChange && i !== animations.length) {
                 let [firstBar, secondBar] = animations[i];
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
@@ -65,23 +71,31 @@ export default class SortingVisualiser extends React.Component {
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
-                }, i * 5);
-            } else {
+                }, i * speed);
+            } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
-                }, i * 5);
+                }, i * speed);
+            }
+
+            if (i === animations.length) {
+                setTimeout(() => {
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].style.backgroundColor = 'turquoise';
+                    }
+                }, i * speed);
             }
         }
-        console.log(oldArray);
-        console.log(this.state.array);
     }
 
     bubbleSort() {
         const animations = bubbleSortAnimations(this.state.array);
 
-        for (let i = 0; i < animations.length; i++) {
+        let speed = (1 / (animations.length)) * 25000;
+
+        for (let i = 0; i <= animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
             let isColourChange = false;
 
@@ -89,7 +103,7 @@ export default class SortingVisualiser extends React.Component {
                 isColourChange = true;
             }
 
-            if (isColourChange) {
+            if (isColourChange && i !== animations.length) {
                 let [firstBar, secondBar] = animations[i];
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
@@ -105,13 +119,21 @@ export default class SortingVisualiser extends React.Component {
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
-                }, (i/10) * 20);
-            } else {
+                }, i * speed);
+            } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
-                }, (i/10) * 20);
+                }, i * speed);
+            }
+
+            if (i === animations.length) {
+                setTimeout(() => {
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].style.backgroundColor = 'turquoise';
+                    }
+                }, i * speed);
             }
         }
     }
@@ -119,7 +141,9 @@ export default class SortingVisualiser extends React.Component {
     quickSort() {
         const animations = quickSortAnimations(this.state.array);
 
-        for (let i = 0; i < animations.length; i++) {
+        let speed = (1 / (animations.length)) * 25000;
+
+        for (let i = 0; i <= animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
             let isColourChange = false;
 
@@ -127,7 +151,7 @@ export default class SortingVisualiser extends React.Component {
                 isColourChange = true;
             }
 
-            if (isColourChange) {
+            if (isColourChange && i !== animations.length) {
                 let [firstBar, secondBar] = animations[i];
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
@@ -143,13 +167,21 @@ export default class SortingVisualiser extends React.Component {
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
-                }, i * 20);
-            } else {
+                }, i * speed);
+            } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
-                }, i * 20);
+                }, i * speed);
+            }
+
+            if (i === animations.length) {
+                setTimeout(() => {
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].style.backgroundColor = 'turquoise';
+                    }
+                }, i * speed);
             }
         }
     }
@@ -157,7 +189,9 @@ export default class SortingVisualiser extends React.Component {
     heapSort() {
         const animations = heapSortAnimations(this.state.array);
 
-        for (let i = 0; i < animations.length; i++) {
+        let speed = (1 / (animations.length)) * 25000;
+
+        for (let i = 0; i <= animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
             let isColourChange = false;
 
@@ -165,7 +199,7 @@ export default class SortingVisualiser extends React.Component {
                 isColourChange = true;
             }
 
-            if (isColourChange) {
+            if (isColourChange && i !== animations.length) {
                 let [firstBar, secondBar] = animations[i];
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
@@ -181,13 +215,21 @@ export default class SortingVisualiser extends React.Component {
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
-                }, i * 20);
-            } else {
+                }, i * speed);
+            } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
-                }, i * 20);
+                }, i * speed);
+            }
+
+            if (i === animations.length) {
+                setTimeout(() => {
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].style.backgroundColor = 'turquoise';
+                    }
+                }, i * speed);
             }
         }
     }
@@ -195,7 +237,9 @@ export default class SortingVisualiser extends React.Component {
     insertionSort() {
         const animations = insertionSortAnimations(this.state.array);
 
-        for (let i = 0; i < animations.length; i++) {
+        let speed = (1 / (animations.length)) * 25000;
+
+        for (let i = 0; i <= animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
             let isColourChange = false;
 
@@ -203,7 +247,7 @@ export default class SortingVisualiser extends React.Component {
                 isColourChange = true;
             }
 
-            if (isColourChange) {
+            if (isColourChange && i !== animations.length) {
                 let [firstBar, secondBar] = animations[i];
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
@@ -219,13 +263,21 @@ export default class SortingVisualiser extends React.Component {
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
-                }, i * 5);
-            } else {
+                }, i * speed);
+            } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
-                }, i * 5);
+                }, i * speed);
+            }
+
+            if (i === animations.length) {
+                setTimeout(() => {
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].style.backgroundColor = 'turquoise';
+                    }
+                }, i * speed);
             }
         }
     }
@@ -233,7 +285,9 @@ export default class SortingVisualiser extends React.Component {
     selectionSort() {
         const animations = selectionSortAnimations(this.state.array);
 
-        for (let i = 0; i < animations.length; i++) {
+        let speed = (1 / (animations.length)) * 25000;
+
+        for (let i = 0; i <= animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
             let isColourChange = false;
 
@@ -241,7 +295,7 @@ export default class SortingVisualiser extends React.Component {
                 isColourChange = true;
             }
 
-            if (isColourChange) {
+            if (isColourChange && i !== animations.length) {
                 let [firstBar, secondBar] = animations[i];
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
@@ -257,13 +311,21 @@ export default class SortingVisualiser extends React.Component {
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
-                }, i * 5);
-            } else {
+                }, i * speed);
+            } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
-                }, i * 5);
+                }, i * speed);
+            }
+
+            if (i === animations.length) {
+                setTimeout(() => {
+                    for (let i = 0; i < elements.length; i++) {
+                        elements[i].style.backgroundColor = 'turquoise';
+                    }
+                }, i * speed);
             }
         }
     }
