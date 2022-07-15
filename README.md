@@ -1,8 +1,8 @@
 # Sorting Algorithm Visualiser
-The purpose of this project was to develop my skill with using JavaScript, HTML, CSS, Bootstrap and React while also learning more about different algorithms and data structures.\
-The visualiser can be used at: https://frahman28.github.io/Sorting-Visualiser/ \
+The purpose of this project was to develop my skill with using JavaScript, HTML, CSS, Bootstrap and React while also learning more about different algorithms and data structures.
+The visualiser can be used at: https://frahman28.github.io/Sorting-Visualiser/ 
 
-Algorithms Implemented: \
+Algorithms Implemented: 
  - Merge Sort
  - Bubble Sort
  - Quick Sort
