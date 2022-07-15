@@ -1,7 +1,7 @@
 # Sorting Algorithms Visualiser
-The purpose of this project was to develop my skill with using JavaScript, HTML, CSS, Bootstrap and React while also learning more about different algorithms and data structures.
-The visualiser can be used at: https://frahman28.github.io/Sorting-Visualiser/
-This project uses code from and was inspired by Clément Mihailescu: https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g
+The purpose of this project was to develop my skill with using JavaScript, HTML, CSS, Bootstrap and React while also learning more about different algorithms and data structures.\
+The visualiser can be used at: https://frahman28.github.io/Sorting-Visualiser/ \
+This project uses code from and was inspired by Clément Mihailescu: https://www.youtube.com/channel/UCaO6VoaYJv4kS-TQO_M-N_g \
 
 # Getting Started with Create React App
 
