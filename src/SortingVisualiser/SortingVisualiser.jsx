@@ -48,6 +48,7 @@ export default class SortingVisualiser extends React.Component {
     }
 
     mergeSort() {
+        const oldArray = this.state.array;
         const animations = mergeSortAnimations(this.state.array);
 
         for (let i = 0; i < animations.length; i++) {
@@ -73,6 +74,8 @@ export default class SortingVisualiser extends React.Component {
                 }, i * 5);
             }
         }
+        console.log(oldArray);
+        console.log(this.state.array);
     }
 
     bubbleSort() {
@@ -80,7 +83,6 @@ export default class SortingVisualiser extends React.Component {
 
         for (let i = 0; i < animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
-            //let isColorChange = i % 3 !== 2;
             let isColourChange = false;
 
             if (i % 4 === 0 || i % 4 === 1) {
@@ -119,7 +121,6 @@ export default class SortingVisualiser extends React.Component {
 
         for (let i = 0; i < animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
-            //let isColorChange = i % 3 !== 2;
             let isColourChange = false;
 
             if (i % 4 === 0 || i % 4 === 1) {
@@ -158,7 +159,6 @@ export default class SortingVisualiser extends React.Component {
 
         for (let i = 0; i < animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
-            //let isColorChange = i % 3 !== 2;
             let isColourChange = false;
 
             if (i % 4 === 0 || i % 4 === 1) {
@@ -197,7 +197,6 @@ export default class SortingVisualiser extends React.Component {
 
         for (let i = 0; i < animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
-            //let isColorChange = i % 3 !== 2;
             let isColourChange = false;
 
             if (i % 4 === 0 || i % 4 === 1) {
@@ -236,7 +235,6 @@ export default class SortingVisualiser extends React.Component {
 
         for (let i = 0; i < animations.length; i++) {
             const elements = document.getElementsByClassName("array-block");
-            //let isColorChange = i % 3 !== 2;
             let isColourChange = false;
 
             if (i % 4 === 0 || i % 4 === 1) {
