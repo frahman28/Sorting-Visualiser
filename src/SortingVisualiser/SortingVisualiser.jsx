@@ -41,13 +41,13 @@ export default class SortingVisualiser extends React.Component {
 
     setBarSize() {
         var elements = document.getElementsByClassName("array-block");
-        let blockSize = (1 / (elements.length / 250)) / 10;
+        let blockSize = (2 / (elements.length / 25));
         for (let i = 0; i < elements.length; i++) {
             elements[i].style.width = `${blockSize}em`;
         }
 
         for (let i = 0; i < elements.length; i++) {
-            elements[i].style.backgroundColor = 'lime';
+            elements[i].style.backgroundColor = 'black';
         }
 
     }
@@ -66,25 +66,31 @@ export default class SortingVisualiser extends React.Component {
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
 
-                const colour = i % 3 === 0 ? 'red' : 'lime';
+                const colour = i % 3 === 0 ? '#bfbfbf' : 'black';
                 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             }
 
             if (i === animations.length) {
                 setTimeout(() => {
                     for (let i = 0; i < elements.length; i++) {
-                        elements[i].style.backgroundColor = 'turquoise';
+                        elements[i].style.backgroundColor = '#3bba9c';
                     }
+                    document.getElementById("visualise").disabled = false;
+                    document.getElementById("reset").disabled = false;
                 }, i * speed);
             }
         }
@@ -108,30 +114,36 @@ export default class SortingVisualiser extends React.Component {
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
 
-                let colour = i % 3 === 0 ? 'red' : 'lime';
+                let colour = i % 3 === 0 ? '#bfbfbf' : 'black';
 
                 if (i % 4 === 0) {
-                    colour = 'red';
+                    colour = '#bfbfbf';
                 } else {
-                    colour = 'lime';
+                    colour = 'black';
                 }
                 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             }
 
             if (i === animations.length) {
                 setTimeout(() => {
                     for (let i = 0; i < elements.length; i++) {
-                        elements[i].style.backgroundColor = 'turquoise';
+                        elements[i].style.backgroundColor = '#3bba9c';
+                        document.getElementById("visualise").disabled = false;
+                        document.getElementById("reset").disabled = false;
                     }
                 }, i * speed);
             }
@@ -156,30 +168,36 @@ export default class SortingVisualiser extends React.Component {
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
 
-                let colour = i % 3 === 0 ? 'red' : 'lime';
+                let colour = i % 3 === 0 ? '#bfbfbf' : 'black';
 
                 if (i % 4 === 0) {
-                    colour = 'red';
+                    colour = '#bfbfbf';
                 } else {
-                    colour = 'lime';
+                    colour = 'black';
                 }
                 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             }
 
             if (i === animations.length) {
                 setTimeout(() => {
                     for (let i = 0; i < elements.length; i++) {
-                        elements[i].style.backgroundColor = 'turquoise';
+                        elements[i].style.backgroundColor = '#3bba9c';
+                        document.getElementById("visualise").disabled = false;
+                    document.getElementById("reset").disabled = false;
                     }
                 }, i * speed);
             }
@@ -204,30 +222,36 @@ export default class SortingVisualiser extends React.Component {
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
 
-                let colour = i % 3 === 0 ? 'red' : 'lime';
+                let colour = i % 3 === 0 ? '#bfbfbf' : 'black';
 
                 if (i % 4 === 0) {
-                    colour = 'red';
+                    colour = '#bfbfbf';
                 } else {
-                    colour = 'lime';
+                    colour = 'black';
                 }
                 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             }
 
             if (i === animations.length) {
                 setTimeout(() => {
                     for (let i = 0; i < elements.length; i++) {
-                        elements[i].style.backgroundColor = 'turquoise';
+                        elements[i].style.backgroundColor = '#3bba9c';
+                        document.getElementById("visualise").disabled = false;
+                        document.getElementById("reset").disabled = false;
                     }
                 }, i * speed);
             }
@@ -252,30 +276,36 @@ export default class SortingVisualiser extends React.Component {
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
 
-                let colour = i % 3 === 0 ? 'red' : 'lime';
+                let colour = i % 3 === 0 ? '#bfbfbf' : 'black';
 
                 if (i % 4 === 0) {
-                    colour = 'red';
+                    colour = '#bfbfbf';
                 } else {
-                    colour = 'lime';
+                    colour = 'black';
                 }
 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             }
 
             if (i === animations.length) {
                 setTimeout(() => {
                     for (let i = 0; i < elements.length; i++) {
-                        elements[i].style.backgroundColor = 'turquoise';
+                        elements[i].style.backgroundColor = '#3bba9c';
+                        document.getElementById("visualise").disabled = false;
+                        document.getElementById("reset").disabled = false;
                     }
                 }, i * speed);
             }
@@ -300,30 +330,36 @@ export default class SortingVisualiser extends React.Component {
                 let firstBarStyle = elements[firstBar].style;
                 let secondBarStyle = elements[secondBar].style;
 
-                let colour = i % 3 === 0 ? 'red' : 'lime';
+                let colour = i % 3 === 0 ? '#bfbfbf' : 'black';
 
                 if (i % 4 === 0) {
-                    colour = 'red';
+                    colour = '#bfbfbf';
                 } else {
-                    colour = 'lime';
+                    colour = 'black';
                 }
 
                 setTimeout(() => {
                     firstBarStyle.backgroundColor = colour;
                     secondBarStyle.backgroundColor = colour;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             } else if (i !== animations.length) {
                 setTimeout(() => {
                     let [firstBar, newHeight] = animations[i];
                     let firstBarStyle = elements[firstBar].style;
                     firstBarStyle.height = `${newHeight}px`;
+                    document.getElementById("visualise").disabled = true;
+                    document.getElementById("reset").disabled = true;
                 }, i * speed);
             }
 
             if (i === animations.length) {
                 setTimeout(() => {
                     for (let i = 0; i < elements.length; i++) {
-                        elements[i].style.backgroundColor = 'turquoise';
+                        elements[i].style.backgroundColor = '#3bba9c';
+                        document.getElementById("visualise").disabled = false;
+                        document.getElementById("reset").disabled = false;
                     }
                 }, i * speed);
             }
@@ -381,9 +417,9 @@ export default class SortingVisualiser extends React.Component {
             Randomise Array
             </button>
             </div>
-            <div className="container">
+            <div className="flex-container">
                 {array.map((value, index) => (
-                    <div className="array-block" key={index} style={{background: 'lime', height: `${value}px`,}}></div>
+                    <div className="array-block" key={index} style={{background: 'black', height: `${value}px`,}}></div>
                 ))}
             </div>
             </>
